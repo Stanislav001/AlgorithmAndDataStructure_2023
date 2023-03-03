@@ -6,14 +6,33 @@ namespace _01_SelectionSort_BubbleSort_InsertionSort
     {
         static void Main(string[] args)
         {
-
 			int[] arr = new int[6] { 5, 445, 321, 0, 12, 6 };
             PrintArray(arr);
-            InsertionSort(arr);
+            SelectionSort(arr);
             PrintArray(arr);
 		}
 
-        private static void BibbleSort(int[] arr)
+        private static void SelectionSort(int[] arr) // Метод на пряката селекция 
+        {
+            int n = arr.Length;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                int min = i;
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (arr[j] < arr[min])
+                    {
+                        min = j;
+                    }
+                }
+                int temp = arr[min];
+                arr[min] = arr[i];
+                arr[i] = temp;
+            }
+        }
+
+        private static void BibbleSort(int[] arr) // Метод на мехурчето 
         {
             int n = arr.Length;
 
@@ -31,7 +50,7 @@ namespace _01_SelectionSort_BubbleSort_InsertionSort
             }
         }
 
-        public static void InsertionSort(int[] arr)
+        public static void InsertionSort(int[] arr) // Сортиране, чрез вмъкване 
         {
             int n = arr.Length;
 
